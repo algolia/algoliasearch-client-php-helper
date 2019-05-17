@@ -1,4 +1,4 @@
-## `algolia/php-extended` maintainers
+## `/algolia/algoliasearch-client-php-helper` maintainers
 
 | Name            | Email                       |
 |-----------------|-----------------------------|
