@@ -1,0 +1,6 @@
+composer.lock
+/vendor/
+
+/tests/cache/
+.idea/
+.php_cs.dist

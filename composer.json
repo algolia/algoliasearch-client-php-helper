@@ -1,0 +1,30 @@
+{
+  "name": "algolia/algoliasearch-client-php-helper",
+  "description": "Algolia extension for search API Client",
+  "keywords": ["algolia", "search", "api", "client", "php", "helper"],
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Algolia Team",
+      "email": "contact@algolia.com"
+    }
+  ],
+  "require": {
+    "php": "^5.3 || ^7.0",
+    "algolia/algoliasearch-client-php": "^2.2"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^4.8"
+  },
+  "autoload": {
+    "psr-4": {
+      "Algolia\\AlgoliaSearch\\Helper\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Algolia\\AlgoliaSearch\\Tests\\": "tests"
+    }
+  }
+}
