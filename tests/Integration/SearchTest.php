@@ -3,7 +3,6 @@
 namespace Algolia\AlgoliaSearch\Helper\Tests\Integration;
 
 use Algolia\AlgoliaSearch\Helper\SearchClient;
-use Algolia\AlgoliaSearch\Response\MultiResponse;
 
 class SearchTest extends AlgoliaIntegrationTestCase
 {
@@ -29,7 +28,7 @@ class SearchTest extends AlgoliaIntegrationTestCase
         $index = SearchClient::get()->initIndex(static::$indexes['main']);
 
         /* adding a object without object id to create the index */
-        $obj1 = array('foo'=>'bar');
+        $obj1 = array('foo' => 'bar');
         $response = $index->saveObject($obj1, array('autoGenerateObjectIDIfNotExist' => true));
 
         /* Wait all collected task to terminate */
