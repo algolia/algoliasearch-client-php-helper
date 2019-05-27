@@ -3,15 +3,10 @@
 namespace Algolia\AlgoliaSearch\Helper\Tests\Integration;
 
 use Algolia\AlgoliaSearch\Helper\SearchClient;
+use PHPUnit\Framework\TestCase;
 
-class SearchTest extends AlgoliaIntegrationTestCase
+class SearchTest extends TestCase
 {
-    protected function setUp()
-    {
-        parent::setUp();
-        static::$indexes['main'] = self::safeName('indexing');
-    }
-
     public function testIndexNotExist()
     {
         /** @var \Algolia\AlgoliaSearch\Helper\SearchIndex $index */
@@ -25,7 +20,7 @@ class SearchTest extends AlgoliaIntegrationTestCase
     public function testIndexExist()
     {
         /** @var \Algolia\AlgoliaSearch\Helper\SearchIndex $index */
-        $index = SearchClient::get()->initIndex(static::$indexes['main']);
+        $index = SearchClient::get()->initIndex('main');
 
         /* adding a object without object id to create the index */
         $obj1 = array('foo' => 'bar');
@@ -37,5 +32,8 @@ class SearchTest extends AlgoliaIntegrationTestCase
         $response = $index->exist();
 
         self::assertEquals($response, true);
+
+        $index->delete();
+
     }
 }
