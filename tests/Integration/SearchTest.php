@@ -10,7 +10,7 @@ class SearchTest extends TestCase
     public function testIndexNotExist()
     {
         /** @var \Algolia\AlgoliaSearch\Helper\SearchIndex $index */
-        $index = SearchClient::get()->initIndex('IndexNotExisting');
+        $index = SearchClient::get()->initIndex('testIndexNotExist');
 
         $response = $index->exist();
 
