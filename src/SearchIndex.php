@@ -9,17 +9,16 @@ class SearchIndex extends \Algolia\AlgoliaSearch\SearchIndex
     /**
      * Check if the index exist.
      *
-     * @return bool $response
+     * @return bool
      */
     public function exist()
     {
         try {
             $this->getSettings();
-            $response = true;
-        } catch (NotFoundException $exception) {
-            $response = false;
-        }
 
-        return $response;
+            return true;
+        } catch (NotFoundException $exception) {
+            return false;
+        }
     }
 }
