@@ -6,6 +6,11 @@ use Algolia\AlgoliaSearch\Exceptions\NotFoundException;
 
 class SearchIndex extends \Algolia\AlgoliaSearch\SearchIndex
 {
+    /**
+     * Check if the index exist.
+     *
+     * @return bool $response
+     */
     public function exist()
     {
         try {

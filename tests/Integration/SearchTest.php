@@ -12,8 +12,10 @@ class SearchTest extends TestCase
         /** @var \Algolia\AlgoliaSearch\Helper\SearchIndex $index */
         $index = SearchClient::get()->initIndex('testIndexNotExist');
 
+        /* check if index exist */
         $response = $index->exist();
 
+        /* Assert value, should return false */
         self::assertEquals($response, false);
     }
 
@@ -29,11 +31,13 @@ class SearchTest extends TestCase
         /* Wait all collected task to terminate */
         $response->wait();
 
+        /* Check if index exist */
         $response = $index->exist();
 
+        /* Assert value, should return true */
         self::assertEquals($response, true);
 
+        /* Delete index */
         $index->delete();
-
     }
 }
