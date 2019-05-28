@@ -7,7 +7,7 @@ $finder = \PhpCsFixer\Finder::create()
 
 $rules = array(
     '@Symfony' => true,
-    'array_syntax' => array('syntax' => 'long'),
+    'array_syntax' => array('syntax' => 'short'),
 );
 
 if (PHP_VERSION_ID < 50400) {
