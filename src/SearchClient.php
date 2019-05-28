@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of Algolia php-client-helper.
+ * This file is part of AlgoliaSearch Client PHP Helper.
  *
  * (c) Algolia Team <contact@algolia.com>
  *
@@ -14,7 +14,7 @@ namespace Algolia\AlgoliaSearch\Helper;
 class SearchClient extends \Algolia\AlgoliaSearch\SearchClient
 {
     /**
-     * Instantiate \Algolia\AlgoliaSearch\Helper\SearchIndex.
+     * Creates a new instance of the Search Index.
      *
      * @param string $indexName
      *
