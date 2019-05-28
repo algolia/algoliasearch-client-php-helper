@@ -12,14 +12,13 @@ class SearchTest extends TestCase
         /** @var \Algolia\AlgoliaSearch\Helper\SearchIndex $index */
         $index = SearchClient::get()->initIndex('main');
 
-        /* Delete the index*/
         $index->delete();
     }
 
     public function testIndexNotExist()
     {
         /** @var \Algolia\AlgoliaSearch\Helper\SearchIndex $index */
-        $index = SearchClient::get()->initIndex('testIndexNotExist');
+        $index = SearchClient::get()->initIndex('PHP_');
 
         /* Check if index exist */
         $response = $index->exist();
