@@ -7,12 +7,21 @@ use PHPUnit\Framework\TestCase;
 
 class SearchTest extends TestCase
 {
+    static function tearDownAfterClass() {
+
+        /** @var \Algolia\AlgoliaSearch\Helper\SearchIndex $index */
+        $index = SearchClient::get()->initIndex('main');
+
+        /* Delete the index*/
+        $index->delete();
+    }
+
     public function testIndexNotExist()
     {
         /** @var \Algolia\AlgoliaSearch\Helper\SearchIndex $index */
         $index = SearchClient::get()->initIndex('testIndexNotExist');
 
-        /* check if index exist */
+        /* Check if index exist */
         $response = $index->exist();
 
         /* Assert value, should return false */
@@ -24,7 +33,7 @@ class SearchTest extends TestCase
         /** @var \Algolia\AlgoliaSearch\Helper\SearchIndex $index */
         $index = SearchClient::get()->initIndex('main');
 
-        /* adding a object without object id to create the index */
+        /* Adding a object without object id to create the index */
         $obj1 = array('foo' => 'bar');
         $response = $index->saveObject($obj1, array('autoGenerateObjectIDIfNotExist' => true));
 
