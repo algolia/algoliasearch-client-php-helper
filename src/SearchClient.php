@@ -14,11 +14,11 @@ namespace Algolia\AlgoliaSearch\Helper;
 class SearchClient extends \Algolia\AlgoliaSearch\SearchClient
 {
     /**
-     * Instantiate Algolia\AlgoliaSearch\Helper\SearchIndex.
+     * Instantiate \Algolia\AlgoliaSearch\Helper\SearchIndex.
      *
      * @param string $indexName
      *
-     * @return SearchIndex
+     * @return \Algolia\AlgoliaSearch\Helper\SearchIndex
      */
     public function initIndex($indexName)
     {
