@@ -1,4 +1,5 @@
 <?php
+
 require_once __DIR__.'/../vendor/autoload.php';
 $envVarNames = array('ALGOLIA_APP_ID', 'ALGOLIA_API_KEY');
 foreach ($envVarNames as $name) {
