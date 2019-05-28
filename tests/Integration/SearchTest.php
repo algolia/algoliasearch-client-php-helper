@@ -7,8 +7,8 @@ use PHPUnit\Framework\TestCase;
 
 class SearchTest extends TestCase
 {
-    static function tearDownAfterClass() {
-
+    public static function tearDownAfterClass()
+    {
         /** @var \Algolia\AlgoliaSearch\Helper\SearchIndex $index */
         $index = SearchClient::get()->initIndex('main');
 
@@ -34,8 +34,8 @@ class SearchTest extends TestCase
         $index = SearchClient::get()->initIndex('main');
 
         /* Adding a object without object id to create the index */
-        $obj1 = array('foo' => 'bar');
-        $response = $index->saveObject($obj1, array('autoGenerateObjectIDIfNotExist' => true));
+        $obj1 = ['foo' => 'bar'];
+        $response = $index->saveObject($obj1, ['autoGenerateObjectIDIfNotExist' => true]);
 
         /* Wait all collected task to terminate */
         $response->wait();
