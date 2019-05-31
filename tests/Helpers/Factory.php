@@ -19,7 +19,7 @@ final class Factory
      */
     public static function getIndexName($name)
     {
-        if (! self::$instance) {
+        if (!self::$instance) {
             self::$instance = getenv('TRAVIS') ? getenv('TRAVIS_JOB_NUMBER') : get_current_user();
         }
 

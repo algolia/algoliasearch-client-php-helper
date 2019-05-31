@@ -2,7 +2,6 @@
 
 namespace Algolia\AlgoliaSearch\Helper\Tests\Integration;
 
-use Algolia\AlgoliaSearch\Helper\SearchClient;
 use Algolia\AlgoliaSearch\Helper\Tests\Helpers\Factory;
 use PHPUnit\Framework\TestCase;
 
