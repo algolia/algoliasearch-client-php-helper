@@ -24,10 +24,10 @@ class SearchIndex extends \Algolia\AlgoliaSearch\SearchIndex
     {
         try {
             $this->getSettings();
-
-            return true;
         } catch (NotFoundException $exception) {
             return false;
         }
+
+        return true;
     }
 }
