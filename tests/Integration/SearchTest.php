@@ -20,7 +20,7 @@ final class SearchTest extends TestCase
      */
     public function setUp()
     {
-        $this->index = SearchClient::get()->initIndex(Factory::getIndexName('index_exist'));
+        $this->index = SearchClient::get()->initIndex(Factory::getIndexName('indexExist'));
     }
 
     /**
