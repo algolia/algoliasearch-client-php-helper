@@ -19,6 +19,8 @@ final class Factory
 
         $date = date('Y-m-d_H:i:s');
 
-        return $phpversion.'_'.$date.'_'.$testName;
+        $systemUsername = get_current_user();
+
+        return $phpversion.'_'.$date.'_'.$systemUsername.'_'.$testName;
     }
 }
