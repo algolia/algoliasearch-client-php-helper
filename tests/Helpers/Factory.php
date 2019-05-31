@@ -11,7 +11,7 @@ final class Factory
     private $client;
 
     /**
-     * Returns a new index name based on the given `testName`.
+     * Returns a new index name based on the given `name`.
      *
      * @param string $name
      *
