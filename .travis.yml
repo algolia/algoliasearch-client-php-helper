@@ -23,5 +23,5 @@ before_script:
   
 script:
   - ./algolia-keys export
-  - php vendor/bin/phpunit -v --testsuite Integration
+  - phpunit -v --testsuite Integration
   - vendor/bin/php-cs-fixer fix -v --dry-run
