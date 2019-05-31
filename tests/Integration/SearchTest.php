@@ -20,8 +20,6 @@ final class SearchTest extends TestCase
     public function setUp()
     {
         $client = Factory::getClient();
-        var_dump(getenv('ALGOLIA_ADMIN_KEY_1'));
-        var_dump(getenv('ALGOLIA_APPLICATION_ID_1'));
         $this->index = $client->initIndex(Factory::getIndexName('indexExist'));
     }
 
