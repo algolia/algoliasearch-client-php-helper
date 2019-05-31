@@ -7,6 +7,7 @@ $finder = \PhpCsFixer\Finder::create()
 
 $rules = [
     '@Symfony' => true,
+    'phpdoc_no_empty_return' => false,
     'array_syntax' => ['syntax' => 'short'],
 ];
 
