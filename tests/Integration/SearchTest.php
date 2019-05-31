@@ -15,6 +15,8 @@ final class SearchTest extends TestCase
 
     /**
      * Called before every tests.
+     *
+     * @return void
      */
     public function setUp()
     {
@@ -23,6 +25,8 @@ final class SearchTest extends TestCase
 
     /**
      * Called after every tests.
+     *
+     * @return void
      */
     public function tearDown()
     {
@@ -32,6 +36,8 @@ final class SearchTest extends TestCase
 
     /**
      * Test if an index not exist.
+     *
+     * @return void
      */
     public function testIndexNotExist()
     {
@@ -44,6 +50,8 @@ final class SearchTest extends TestCase
 
     /**
      * Test if an index exist.
+     *
+     * @return void
      */
     public function testIndexExist()
     {
