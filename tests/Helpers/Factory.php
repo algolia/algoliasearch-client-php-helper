@@ -20,7 +20,7 @@ final class Factory
         $date = date('Y-m-d_H:i:s');
 
         $systemUsername = get_current_user();
-
+        var_dump($phpversion.'_'.$date.'_'.$systemUsername.'_'.$testName);
         return $phpversion.'_'.$date.'_'.$systemUsername.'_'.$testName;
     }
 }
