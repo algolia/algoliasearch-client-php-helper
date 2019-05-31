@@ -22,6 +22,6 @@ before_script:
   - wget https://alg.li/algolia-keys && chmod +x algolia-keys
   
 script:
-  - $(./algolia-keys export)
+  - ./algolia-keys export
   - php vendor/bin/phpunit -v --testsuite Integration
   - vendor/bin/php-cs-fixer fix -v --dry-run
