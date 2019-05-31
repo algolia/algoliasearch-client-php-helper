@@ -25,7 +25,7 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "Algolia\\AlgoliaSearch\\Tests\\": "tests"
+      "Algolia\\AlgoliaSearch\\Helper\\Tests\\": "tests/"
     }
   }
 }
