@@ -20,7 +20,8 @@ install:
 
 before_script:
   - wget https://alg.li/algolia-keys && chmod +x algolia-keys
+  - eval $(./algolia-keys export)
   
 script:
-  - if [ "$TRAVIS_PULL_REQUEST" != "false" ] && [[ ! "$TRAVIS_PULL_REQUEST_SLUG" =~ ^algolia\/ ]]; then eval $(./algolia-keys export) && php vendor/bin/phpunit -v --testsuite Integration; else php vendor/bin/phpunit -v; fi
+  - php vendor/bin/phpunit -v --testsuite Integration
   - vendor/bin/php-cs-fixer fix -v --dry-run
