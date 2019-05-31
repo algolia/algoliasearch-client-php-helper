@@ -8,9 +8,18 @@ php:
   - 7.1
   - 7.2
   - 7.3
+matrix:
+  include:
+    - php: 5.6
+    - php: 7.0
+    - php: 7.1
+    - php: 7.2
+    - php: 7.3
+    - php: nightly
 
-allow_failures:
-  - php: nightly
+  allow_failures:
+    - php: nightly
+
 
 install:
   - COMPOSER_MEMORY_LIMIT=-1 travis_retry composer install
