@@ -5,7 +5,7 @@ namespace Algolia\AlgoliaSearch\Helper\Tests\Helpers;
 final class Factory
 {
     /**
-     * Create Index Name.
+     * Returns a new index name based on the given `testName`.
      *
      * @param string $testName
      *
