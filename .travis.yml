@@ -22,5 +22,5 @@ before_script:
   - wget https://alg.li/algolia-keys && chmod +x algolia-keys
   
 script:
-  - vendor/bin/phpunit -v
+  - vendor/bin/phpunit
   - vendor/bin/php-cs-fixer fix -v --dry-run
