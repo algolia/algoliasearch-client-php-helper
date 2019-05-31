@@ -20,7 +20,7 @@ install:
 
 before_script:
   - wget https://alg.li/algolia-keys && chmod +x algolia-keys
-  - ./algolia-keys export
+  - eval $(./algolia-keys export)
   
 script:
   - vendor/bin/phpunit
