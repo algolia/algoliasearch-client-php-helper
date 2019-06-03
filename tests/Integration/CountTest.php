@@ -15,14 +15,18 @@ final class CountTest extends TestCase
 
     /**
      * Called before every tests.
+     *
+     * @return void
      */
     public function setUp()
     {
-        $this->index = SearchClient::get()->initIndex(Factory::getIndexName('index_exist'));
+        $this->index = SearchClient::get()->initIndex(Factory::getIndexName('testCountIndex'));
     }
 
     /**
      * Called after every tests.
+     *
+     * @return void
      */
     public function tearDown()
     {
@@ -32,6 +36,8 @@ final class CountTest extends TestCase
 
     /**
      * Test if count return correct number of records.
+     *
+     * @return void
      */
     public function testCountIndex()
     {
