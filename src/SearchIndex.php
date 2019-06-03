@@ -13,7 +13,7 @@ namespace Algolia\AlgoliaSearch\Helper;
 
 use Algolia\AlgoliaSearch\Exceptions\NotFoundException;
 
-class SearchIndex extends \Algolia\AlgoliaSearch\SearchIndex
+final class SearchIndex extends \Algolia\AlgoliaSearch\SearchIndex
 {
     /**
      * Check if the index exist.

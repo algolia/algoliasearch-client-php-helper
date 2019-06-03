@@ -11,7 +11,7 @@
 
 namespace Algolia\AlgoliaSearch\Helper;
 
-class SearchClient extends \Algolia\AlgoliaSearch\SearchClient
+final class SearchClient extends \Algolia\AlgoliaSearch\SearchClient
 {
     /**
      * Creates a new instance of the Search Client.
