@@ -52,7 +52,7 @@ final class SearchIndexTest extends TestCase
     public function testCount()
     {
         for ($i = 1; $i <= 1000; $i++) {
-            $objects[$i] = Factory::createStubRecord($i);
+            $objects[] = Factory::makeObject();
         }
 
         $this->index

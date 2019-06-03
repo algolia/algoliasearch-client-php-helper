@@ -32,7 +32,7 @@ class SearchIndex extends \Algolia\AlgoliaSearch\SearchIndex
     }
 
     /**
-     * Count number of records inside an index.
+     * Count number of records of the index.
      *
      * @return int
      */

@@ -39,22 +39,17 @@ final class Factory
     }
 
     /**
-     * Create random record.
+     * Create an object.
      *
-     * @param bool $objectID
-     *
-     * @return array
+     * @return array<string, string|int>
      */
-    public static function createStubRecord($objectID = false)
+    public static function makeObject()
     {
         $faker = \Faker\Factory::create();
-        $record = ['name' => $faker->name];
-        if (null === $objectID) {
-            $record['objectID'] = uniqid('php_client_', true);
-        } elseif (false !== $objectID) {
-            $record['objectID'] = $objectID;
-        }
 
-        return $record;
+        return [
+            'objectID' => uniqid('php_client_', true),
+            $faker->name,
+        ];
     }
 }
