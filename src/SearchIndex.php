@@ -32,13 +32,14 @@ class SearchIndex extends \Algolia\AlgoliaSearch\SearchIndex
     }
 
     /**
-     * Count number of records inside an index
+     * Count number of records inside an index.
      *
      * @return int
      */
     public function count()
     {
         $response = $this->search('');
+
         return $response['nbHits'];
     }
 }
