@@ -14,7 +14,7 @@ namespace Algolia\AlgoliaSearch\Helper;
 class SearchClient extends \Algolia\AlgoliaSearch\SearchClient
 {
     /**
-     * Creates a new instance of the Search Index.
+     * Creates a new instance of the Search Client.
      *
      * @param string $indexName
      *

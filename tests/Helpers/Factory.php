@@ -2,26 +2,40 @@
 
 namespace Algolia\AlgoliaSearch\Helper\Tests\Helpers;
 
+use Algolia\AlgoliaSearch\Helper\SearchClient;
+
 final class Factory
 {
+    private static $instance;
+
+    private $client;
+
     /**
-     * Returns a new index name based on the given `testName`.
+     * Returns a new index name based on the given `name`.
      *
-     * @param string $testName
+     * @param string $name
      *
      * @return string
      */
-    public static function getIndexName($testName)
+    public static function getIndexName($name)
     {
-        $phpversion = PHP_VERSION;
+        if (!self::$instance) {
+            self::$instance = getenv('TRAVIS') ? getenv('TRAVIS_JOB_NUMBER') : get_current_user();
+        }
 
-        date_default_timezone_set('UTC');
+        return sprintf('php-helper_%s_%s_%s', date('Y-M-d_H:i:s'), self::$instance, $name);
+    }
 
-        $date = date('Y-m-d_H:i:s');
-
-        $systemUsername = get_current_user();
-
-        return $phpversion.'_'.$date.'_'.$systemUsername.'_'.$testName;
+    /**
+     * Returns a new client.
+     *
+     * @param void
+     *
+     * @return \Algolia\AlgoliaSearch\Helper\SearchClient
+     */
+    public static function getClient()
+    {
+        return SearchClient::create(getenv('ALGOLIA_APPLICATION_ID_1'), getenv('ALGOLIA_ADMIN_KEY_1'));
     }
 
     /**
