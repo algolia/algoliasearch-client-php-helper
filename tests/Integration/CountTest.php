@@ -31,7 +31,7 @@ final class CountTest extends TestCase
     }
 
     /**
-     * Test if count return correct number of records
+     * Test if count return correct number of records.
      */
     public function testCountIndex()
     {
