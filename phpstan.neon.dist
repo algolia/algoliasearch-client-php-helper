@@ -11,4 +11,6 @@ parameters:
         - tests/Integration
     ignoreErrors:
         - '#return type can be added. More info#'
-
+        - '#is neither abstract nor final.#'
+        -'#Implicit array creation is not allowed#'
+        -'#might not be defined.#'
