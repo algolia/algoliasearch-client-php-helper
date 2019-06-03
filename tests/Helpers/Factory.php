@@ -35,8 +35,6 @@ final class Factory
      */
     public static function getClient()
     {
-        return SearchClient::create(
-            getenv('ALGOLIA_APP_ID'), getenv('ALGOLIA_API_KEY')
-        );
+        return SearchClient::create(getenv('ALGOLIA_APP_ID'), getenv('ALGOLIA_API_KEY'));
     }
 }
