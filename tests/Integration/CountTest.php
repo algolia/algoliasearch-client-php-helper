@@ -9,14 +9,12 @@ use PHPUnit\Framework\TestCase;
 final class CountTest extends TestCase
 {
     /**
-     * @var \Algolia\AlgoliaSearch\Helper\SearchIndex $index
+     * @var \Algolia\AlgoliaSearch\Helper\SearchIndex
      */
     private $index;
 
     /**
      * Called before every tests.
-     *
-     * @return void
      */
     public function setUp()
     {
@@ -25,8 +23,6 @@ final class CountTest extends TestCase
 
     /**
      * Called after every tests.
-     *
-     * @return void
      */
     public function tearDown()
     {
@@ -35,15 +31,16 @@ final class CountTest extends TestCase
     }
 
     /**
-     * Test if an index exist.
-     *
-     * @return void
+     * Test if count return correct number of records
      */
     public function testCountIndex()
     {
-        /* Adding a object without object id to create the index */
-        $obj1 = ['foo' => 'bar'];
-        $response = $this->index->saveObject($obj1, ['autoGenerateObjectIDIfNotExist' => true]);
+        /* Adding 1000 objects with object id */
+        for ($i = 1; $i <= 1000; $i++) {
+            $objects[$i] = Factory::createStubRecord($i);
+        }
+
+        $response = $this->index->saveObjects($objects);
 
         /* Wait all collected task to terminate */
         $response->wait();
@@ -52,6 +49,6 @@ final class CountTest extends TestCase
         $response = $this->index->count();
 
         /* Assert value, should return true */
-        self::assertEquals($response, 1);
+        self::assertEquals($response, 1000);
     }
 }
