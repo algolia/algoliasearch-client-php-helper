@@ -22,5 +22,4 @@ before_script:
   - eval $(./algolia-keys export)
 
 script:
-  - php vendor/bin/phpunit -v --testsuite Integration
-  - vendor/bin/php-cs-fixer fix -v --dry-run
+  - composer test
