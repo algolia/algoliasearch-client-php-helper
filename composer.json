@@ -11,12 +11,13 @@
     }
   ],
   "require": {
-    "php": "^5.3 || ^7.0",
+    "php": "^5.6 || ^7.0",
     "algolia/algoliasearch-client-php": "^2.2"
   },
   "require-dev": {
-    "friendsofphp/php-cs-fixer": "^2.0",
-    "phpunit/phpunit": "^4.8"
+    "friendsofphp/php-cs-fixer": "^2.15.1",
+    "fzaninotto/faker": "^1.8",
+    "phpunit/phpunit": "^5.7.27"
   },
   "autoload": {
     "psr-4": {
@@ -25,7 +26,7 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "Algolia\\AlgoliaSearch\\Tests\\": "tests"
+      "Algolia\\AlgoliaSearch\\Helper\\Tests\\": "tests/"
     }
   }
 }

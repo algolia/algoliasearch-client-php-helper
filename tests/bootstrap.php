@@ -1,10 +1,17 @@
 <?php
+
 require_once __DIR__.'/../vendor/autoload.php';
-$envVarNames = array('ALGOLIA_APP_ID', 'ALGOLIA_API_KEY');
-foreach ($envVarNames as $name) {
-    if (!getenv($name)) {
-        echo "Environment variable $name is undefined, please set one.";
+
+$envs = [
+    'ALGOLIA_APPLICATION_ID_1',
+    'ALGOLIA_ADMIN_KEY_1',
+];
+
+foreach ($envs as $env) {
+    if (!is_string(getenv($env))) {
+        echo "Environment variable $env is undefined, please set one.";
         exit(255);
     }
 }
-unset($envVarNames, $name);
+
+unset($envs, $env);

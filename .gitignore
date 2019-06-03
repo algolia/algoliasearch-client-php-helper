@@ -1,5 +1,6 @@
-composer.lock
-/vendor/
+*.cache
+.idea/
 .php_cs.cache
 /tests/cache/
-.idea/
+/vendor/
+composer.lock
