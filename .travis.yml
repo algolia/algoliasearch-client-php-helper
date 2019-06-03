@@ -14,14 +14,13 @@ matrix:
   allow_failures:
     - php: nightly
 
-
 install:
   - COMPOSER_MEMORY_LIMIT=-1 travis_retry composer install
 
 before_script:
   - wget https://alg.li/algolia-keys && chmod +x algolia-keys
   - eval $(./algolia-keys export)
-  
+
 script:
   - php vendor/bin/phpunit -v --testsuite Integration
   - vendor/bin/php-cs-fixer fix -v --dry-run

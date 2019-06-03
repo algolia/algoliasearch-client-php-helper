@@ -1,4 +1,14 @@
+includes:
+    - tests/PhpStan/vendor/phpstan/phpstan-strict-rules/rules.neon
+    - tests/PhpStan/vendor/localheinz/phpstan-rules/rules.neon
+    - tests/PhpStan/vendor/thecodingmachine/phpstan-strict-rules/phpstan-strict-rules.neon
+    - tests/PhpStan/vendor/roave/no-floaters/rules.neon
+
 parameters:
-        level: max
-        paths:
-        - tests
+    level: max
+    paths:
+        - src
+        - tests/Integration
+    ignoreErrors:
+        - '#return type can be added. More info#'
+
