@@ -51,6 +51,7 @@ final class SearchIndexTest extends TestCase
      */
     public function testCount()
     {
+        $objects = [];
         for ($i = 1; $i <= 1000; $i++) {
             $objects[] = Factory::makeObject();
         }

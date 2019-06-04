@@ -1,0 +1,14 @@
+includes:
+    - tests/PhpStan/vendor/phpstan/phpstan-strict-rules/rules.neon
+    - tests/PhpStan/vendor/localheinz/phpstan-rules/rules.neon
+    - tests/PhpStan/vendor/thecodingmachine/phpstan-strict-rules/phpstan-strict-rules.neon
+    - tests/PhpStan/vendor/roave/no-floaters/rules.neon
+
+parameters:
+    level: max
+    paths:
+        - src
+        - tests/Integration
+    ignoreErrors:
+        - '#return type can be added. More info#'
+        - '#Parameter \#1 \$indexName \(string\) of method Algolia\\AlgoliaSearch\\Helper\\SearchClient::initIndex\(\) should be contravariant with parameter \$indexName \(mixed\) of method Algolia\\AlgoliaSearch\\SearchClient::initIndex\(\)#'

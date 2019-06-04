@@ -28,5 +28,17 @@
     "psr-4": {
       "Algolia\\AlgoliaSearch\\Helper\\Tests\\": "tests/"
     }
+  },
+  "scripts": {
+    "install:test": "composer install -d tests/PhpStan/",
+    "update:test": "composer update -d tests/PhpStan/",
+    "phpstan:test": "tests/PhpStan/vendor/bin/phpstan analyse --ansi --autoload-file=../../vendor/autoload.php",
+    "phpunit:test": "phpunit --colors=always",
+    "php-cs-fixer:test": "php-cs-fixer fix -v --dry-run",
+    "test": [
+      "@phpstan:test",
+      "@phpunit:test",
+      "@php-cs-fixer:test"
+    ]
   }
 }
