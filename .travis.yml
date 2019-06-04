@@ -22,4 +22,5 @@ before_script:
   - eval $(./algolia-keys export)
 
 script:
+  - composer install:test
   - composer test

@@ -30,8 +30,8 @@
     }
   },
   "scripts": {
-    "install:test": "composer install --dev -d tests/PhpStan/",
-    "update:test": "composer update --dev -d tests/PhpStan/",
+    "install:test": "composer install -d tests/PhpStan/",
+    "update:test": "composer update -d tests/PhpStan/",
     "phpstan:test": "tests/PhpStan/vendor/bin/phpstan analyse --ansi --autoload-file=../../vendor/autoload.php",
     "phpunit:test": "phpunit --colors=always",
     "php-cs-fixer:test": "php-cs-fixer fix -v --dry-run",
