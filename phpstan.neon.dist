@@ -11,4 +11,4 @@ parameters:
         - tests/Integration
     ignoreErrors:
         - '#return type can be added. More info#'
-        - '#should be contravariant with parameter#'
+        - '#Parameter \#1 \$indexName \(string\) of method Algolia\\AlgoliaSearch\\Helper\\SearchClient::initIndex\(\) should be contravariant with parameter \$indexName \(mixed\) of method Algolia\\AlgoliaSearch\\SearchClient::initIndex\(\)#'
