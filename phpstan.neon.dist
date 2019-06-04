@@ -11,3 +11,4 @@ parameters:
         - tests/Integration
     ignoreErrors:
         - '#return type can be added. More info#'
+        - '#should be contravariant with parameter#'

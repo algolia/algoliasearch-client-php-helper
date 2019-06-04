@@ -16,7 +16,7 @@ final class SearchClient extends \Algolia\AlgoliaSearch\SearchClient
     /**
      * Creates a new instance of the Search Client.
      *
-     * @param mixed $indexName
+     * @param string $indexName
      *
      * @return \Algolia\AlgoliaSearch\Helper\SearchIndex
      */
