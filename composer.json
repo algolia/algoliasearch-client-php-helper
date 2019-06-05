@@ -39,7 +39,6 @@
     "phpunit:test": "phpunit --colors=always",
     "php-cs-fixer:test": "php-cs-fixer fix -v --dry-run",
     "test": [
-      "@phpstan:test",
       "@phpunit:test",
       "@php-cs-fixer:test"
     ]
