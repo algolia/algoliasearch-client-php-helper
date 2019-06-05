@@ -19,7 +19,7 @@ final class SearchIndexTest extends TestCase
     {
         $client = Factory::getClient();
 
-        $this->index = $client->initIndex(Factory::getIndexName($this->getName()));
+        $this->index = $client->initIndex(Factory::getIndexName($this->getName('testIndex')));
     }
 
     /**
