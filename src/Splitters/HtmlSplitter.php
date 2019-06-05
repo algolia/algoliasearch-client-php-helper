@@ -38,7 +38,7 @@ final class HtmlSplitter implements SplitterContract
     /**
      * Creates a new instance of the class.
      *
-     * @param array $tags
+     * @param array|null $tags
      *
      * @return void
      */
