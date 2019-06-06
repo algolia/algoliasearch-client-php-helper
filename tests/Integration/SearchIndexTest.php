@@ -18,7 +18,6 @@ final class SearchIndexTest extends TestCase
     public function setUp()
     {
         $client = Factory::getClient();
-        var_dump(Factory::getIndexName($this->getName()));
         $this->index = $client->initIndex(Factory::getIndexName($this->getName()));
     }
 
