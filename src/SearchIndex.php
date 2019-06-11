@@ -20,7 +20,7 @@ final class SearchIndex extends \Algolia\AlgoliaSearch\SearchIndex
      *
      * @return bool
      */
-    public function exist()
+    public function exists()
     {
         try {
             $this->getSettings();
