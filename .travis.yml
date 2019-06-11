@@ -22,4 +22,5 @@ before_script:
   - eval $(./algolia-keys export)
 
 script:
+  - if [[ ${TRAVIS_PHP_VERSION} >= "7.2" ]]; then composer test:install; composer test:phpstan; fi
   - composer test
