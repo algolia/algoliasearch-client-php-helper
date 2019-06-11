@@ -22,5 +22,6 @@ before_script:
   - eval $(./algolia-keys export)
 
 script:
-  - if [[$(phpenv version-name) >= "7.2" ]]{ then composer install:test; composer phpstan:test;} fi
+  - if [[$(phpenv version-name) >= "7.2" ]]; then composer install:test; fi
+  - if [[$(phpenv version-name) >= "7.2" ]]; then composer phpstan:test; fi
   - composer test
