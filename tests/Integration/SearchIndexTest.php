@@ -18,7 +18,7 @@ final class SearchIndexTest extends TestCase
     public function setUp()
     {
         $client = Factory::getClient();
-
+        var_dump(Factory::getIndexName($this->getName()));
         $this->index = $client->initIndex(Factory::getIndexName($this->getName()));
     }
 
@@ -35,7 +35,7 @@ final class SearchIndexTest extends TestCase
      */
     public function testExist()
     {
-        self::assertFalse($this->index->exist());
+        self::assertFalse($this->index->exists());
 
         $obj = ['foo' => 'bar'];
 
@@ -43,7 +43,7 @@ final class SearchIndexTest extends TestCase
             ->saveObject($obj, ['autoGenerateObjectIDIfNotExist' => true])
             ->wait();
 
-        self::assertTrue($this->index->exist());
+        self::assertTrue($this->index->exists());
     }
 
     /**
