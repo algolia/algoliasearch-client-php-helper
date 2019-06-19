@@ -24,4 +24,4 @@ before_script:
 script:
   - if [[$(phpenv version-name) >= "7.2" ]]; then composer install:test; fi
   - if [[$(phpenv version-name) >= "7.2" ]]; then composer phpstan:test; fi
-  - composer test
+  - if [ "$TRAVIS_PULL_REQUEST" != "false" ] && [[ ! "$TRAVIS_PULL_REQUEST_SLUG" =~ ^algolia\/ ]]; then eval $(./algolia-keys export) && composer test; else composer test; fi
