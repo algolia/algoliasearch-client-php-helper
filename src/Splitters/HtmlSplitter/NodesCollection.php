@@ -16,15 +16,15 @@ namespace Algolia\AlgoliaSearch\Helper\Splitters\HtmlSplitter;
 final class NodesCollection
 {
     /**
-     * Collection of \Algolia\AlgoliaSearch\Helper\Splitters\HtmlSplitter\NodeCollection
+     * An array of \Algolia\AlgoliaSearch\Helper\Splitters\HtmlSplitter\NodeCollection
      * and int as importance after each \Algolia\AlgoliaSearch\Helper\Splitters\HtmlSplitter\NodeCollection.
      *
-     * @var array
+     * @var array<int, \Algolia\AlgoliaSearch\Helper\Splitters\HtmlSplitter\NodeCollection>
      */
     private $nodesImportance = [];
 
     /**
-     * String.
+     * Holds the importance keyword.
      */
     const IMPORTANCE = 'importance';
 
@@ -38,13 +38,14 @@ final class NodesCollection
     public function push(NodeCollection $nodes)
     {
         $this->nodesImportance[] = $nodes->getNodes();
+
         $this->nodesImportance[] = [self::IMPORTANCE => $nodes->importanceWeight($nodes->last(0))];
     }
 
     /**
      * Convert to array.
      *
-     * @return array
+     * @return array<int, array>
      */
     public function toArray()
     {

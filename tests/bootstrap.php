@@ -13,5 +13,4 @@ foreach ($envs as $env) {
         exit(255);
     }
 }
-
 unset($envs, $env);
