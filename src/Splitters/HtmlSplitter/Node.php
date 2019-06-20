@@ -16,14 +16,14 @@ namespace Algolia\AlgoliaSearch\Helper\Splitters\HtmlSplitter;
 final class Node
 {
     /**
-     * Contains node name.
+     * Contains the node tag.
      *
      * @var string tag
      */
     private $tag;
 
     /**
-     * Contains content of node.
+     * Contains the node content.
      *
      * @var string
      */

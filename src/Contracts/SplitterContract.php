@@ -18,7 +18,7 @@ interface SplitterContract
      *
      * @param string $value
      *
-     * @return array
+     * @return array<int, array>
      */
     public function split($value);
 }

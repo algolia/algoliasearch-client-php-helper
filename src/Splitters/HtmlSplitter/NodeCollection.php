@@ -1,7 +1,5 @@
 <?php
 
-/** @noinspection ALL */
-
 /**
  * This file is part of AlgoliaSearch Client PHP Helper.
  *
@@ -21,7 +19,7 @@ final class NodeCollection
     /**
      * Collection of \Algolia\AlgoliaSearch\Helper\Splitters\HtmlSplitter\Node.
      *
-     * @var \Algolia\AlgoliaSearch\Helper\Splitters\HtmlSplitter\Node[]
+     * @var array<int, \Algolia\AlgoliaSearch\Helper\Splitters\HtmlSplitter\Node>
      */
     private $nodes = [];
 
@@ -29,15 +27,16 @@ final class NodeCollection
      * @var \Algolia\AlgoliaSearch\Helper\Splitters\HtmlSplitter\NodesCollection
      */
     private $nodesCollection;
+
     /**
      * The list of html tags.
      *
-     * @var string[]
+     * @var array<int, string>
      */
     private $tags = [];
 
     /**
-     * String.
+     * Holds the paragrahp tag.
      */
     const PARAGRAPH = 'p';
 
@@ -52,6 +51,7 @@ final class NodeCollection
         if (null !== $tags) {
             $this->tags = $tags;
         }
+
         $this->nodesCollection = $nodesCollection;
     }
 
