@@ -19,7 +19,7 @@ final class NodesCollection
      * An array of \Algolia\AlgoliaSearch\Helper\Splitters\HtmlSplitter\NodeCollection
      * and int as importance after each \Algolia\AlgoliaSearch\Helper\Splitters\HtmlSplitter\NodeCollection.
      *
-     * @var array<int, \Algolia\AlgoliaSearch\Helper\Splitters\HtmlSplitter\NodeCollection>
+     * @var array<int, array<string, \Algolia\AlgoliaSearch\Helper\Splitters\HtmlSplitter\Node|int>>
      */
     private $nodesImportance = [];
 
