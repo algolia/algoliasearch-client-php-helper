@@ -33,7 +33,7 @@ final class SearchIndexTest extends TestCase
     /**
      * @return void
      */
-    public function testExist()
+    public function testIndexExists()
     {
         self::assertFalse($this->index->exists());
 

@@ -49,7 +49,8 @@ final class Factory
 
         return [
             'objectID' => uniqid('php_client_', true),
-            $faker->name,
+            ['name' => $faker->name],
+            ['age' => $faker->randomDigitNotNull],
         ];
     }
 }
