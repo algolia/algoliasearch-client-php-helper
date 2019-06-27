@@ -14,13 +14,13 @@ namespace Algolia\AlgoliaSearch\Helper\Settings\SettingsAttribute;
 use Algolia\AlgoliaSearch\Helper\Contracts\SettingContract;
 use Algolia\AlgoliaSearch\Helper\Helpers\Str;
 
-/*
+/**
  * @internal
  */
 final class UnretrievableAttribute implements SettingContract
 {
     /**
-     * @var string[]
+     * @var array<int, string>
      */
     private static $unretrievableAttributesKeys = [
         '*password*',
@@ -30,20 +30,14 @@ final class UnretrievableAttribute implements SettingContract
     ];
 
     /**
-     * Checks if the given key/value is a 'UnretrieableAttribute'.
-     *
-     * @param string|int        $key
-     * @param array|string|null $value
-     * @param array             $unretrievableAttributes
-     *
-     * @return array
+     * {@inheritdoc}
      */
-    public function getValue($key, $value, $unretrievableAttributes)
+    public function getDetectedSettings($key, $value, $detectedSettings)
     {
         if (is_string($key) && Str::is(self::$unretrievableAttributesKeys, $key)) {
-            $unretrievableAttributes[] = $key;
+            $detectedSettings[] = $key;
         }
 
-        return $unretrievableAttributes;
+        return $detectedSettings;
     }
 }

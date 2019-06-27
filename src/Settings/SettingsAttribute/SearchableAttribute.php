@@ -14,13 +14,13 @@ namespace Algolia\AlgoliaSearch\Helper\Settings\SettingsAttribute;
 use Algolia\AlgoliaSearch\Helper\Contracts\SettingContract;
 use Algolia\AlgoliaSearch\Helper\Helpers\Str;
 
-/*
+/**
  * @internal
  */
 final class SearchableAttribute implements SettingContract
 {
     /**
-     * @var string[]
+     * @var array<int, string>
      */
     private static $unsearchableAttributesKeys = [
         'id',
@@ -39,7 +39,7 @@ final class SearchableAttribute implements SettingContract
         '*hash*',
     ];
     /**
-     * @var string[]
+     * @var array<int, string>
      */
     private static $unsearchableAttributesValues = [
         'http://*',
@@ -47,22 +47,14 @@ final class SearchableAttribute implements SettingContract
     ];
 
     /**
-     * Checks if the given key/value is a 'searchableAttributes'.
-     *
-     * @param string                   $key
-     * @param array|string|object|null $value
-     * @param array                    $searchableAttributes
-     *
-     * @return array
+     * {@inheritdoc}
      */
-    public function getValue($key, $value, $searchableAttributes)
+    public function getDetectedSettings($key, $value, $detectedSettings)
     {
-        if (!is_object($value) && !is_array($value) &&
-            !Str::is(self::$unsearchableAttributesKeys, $key) &&
-            !Str::is(self::$unsearchableAttributesValues, $value)) {
-            $searchableAttributes[] = $key;
+        if (!is_object($value) && !is_array($value) && !Str::is(self::$unsearchableAttributesKeys, $key) && !Str::is(self::$unsearchableAttributesValues, $value)) {
+            $detectedSettings[] = $key;
         }
 
-        return $searchableAttributes;
+        return $detectedSettings;
     }
 }

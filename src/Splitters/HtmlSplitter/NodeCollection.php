@@ -17,6 +17,10 @@ namespace Algolia\AlgoliaSearch\Helper\Splitters\HtmlSplitter;
 final class NodeCollection
 {
     /**
+     * Holds the paragraph tag.
+     */
+    const PARAGRAPH = 'p';
+    /**
      * Collection of \Algolia\AlgoliaSearch\Helper\Splitters\HtmlSplitter\Node.
      *
      * @var array<int, \Algolia\AlgoliaSearch\Helper\Splitters\HtmlSplitter\Node>
@@ -36,17 +40,12 @@ final class NodeCollection
     private $tags = [];
 
     /**
-     * Holds the paragrahp tag.
-     */
-    const PARAGRAPH = 'p';
-
-    /**
      * NodeCollection constructor.
      *
-     * @param array|null                                                           $tags
      * @param \Algolia\AlgoliaSearch\Helper\Splitters\HtmlSplitter\NodesCollection $nodesCollection
+     * @param null|array<int, string>                                              $tags
      */
-    public function __construct($tags = null, NodesCollection $nodesCollection)
+    public function __construct(NodesCollection $nodesCollection, $tags = null)
     {
         if (null !== $tags) {
             $this->tags = $tags;
@@ -56,7 +55,7 @@ final class NodeCollection
     }
 
     /**
-     * @return array
+     * @return array<int, \Algolia\AlgoliaSearch\Helper\Splitters\HtmlSplitter\Node>
      */
     public function getNodes()
     {

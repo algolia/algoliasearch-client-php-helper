@@ -11,26 +11,8 @@
 
 namespace Algolia\AlgoliaSearch\Helper;
 
-use Algolia\AlgoliaSearch\Exceptions\NotFoundException;
-
 final class SearchIndex extends \Algolia\AlgoliaSearch\SearchIndex
 {
-    /**
-     * Check if the index exist.
-     *
-     * @return bool
-     */
-    public function exists()
-    {
-        try {
-            $this->getSettings();
-        } catch (NotFoundException $exception) {
-            return false;
-        }
-
-        return true;
-    }
-
     /**
      * Count number of records of the index.
      *

@@ -15,15 +15,15 @@ use Algolia\AlgoliaSearch\Helper\Contracts\SplitterContract;
 use Algolia\AlgoliaSearch\Helper\Splitters\HtmlSplitter\Node;
 use Algolia\AlgoliaSearch\Helper\Splitters\HtmlSplitter\NodeCollection;
 use Algolia\AlgoliaSearch\Helper\Splitters\HtmlSplitter\NodesCollection;
-use DOMXPath;
 use DOMDocument;
+use DOMXPath;
 
 final class HtmlSplitter implements SplitterContract
 {
     /**
      * The list of html tags.
      *
-     * @var string[]
+     * @var array<int, string>
      */
     private $tags = [
         'h1',
@@ -38,7 +38,7 @@ final class HtmlSplitter implements SplitterContract
     /**
      * Creates a new instance of the class.
      *
-     * @param array|null $tags
+     * @param null|array<int, string> $tags
      *
      * @return void
      */
@@ -54,7 +54,7 @@ final class HtmlSplitter implements SplitterContract
      *
      * @param string $value
      *
-     * @return array<int, array>
+     * @return array<int, array<string, int|string>>
      */
     public function split($value)
     {
@@ -70,7 +70,7 @@ final class HtmlSplitter implements SplitterContract
         $xpathQuery = '//'.implode(' | //', $this->tags);
         $nodes = $xpath->query($xpathQuery);
         $nodesCollection = new NodesCollection();
-        $nodeCollection = new NodeCollection($this->tags, $nodesCollection);
+        $nodeCollection = new NodeCollection($nodesCollection, $this->tags);
 
         foreach ($nodes as $node) {
             $nodeCollection->push(new Node($node->nodeName, $node->textContent));

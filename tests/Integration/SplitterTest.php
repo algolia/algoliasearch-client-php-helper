@@ -5,6 +5,9 @@ namespace Algolia\AlgoliaSearch\Helper\Tests\Integration;
 use Algolia\AlgoliaSearch\Helper\Splitters\HtmlSplitter;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * @internal
+ */
 final class SplitterTest extends TestCase
 {
     /**

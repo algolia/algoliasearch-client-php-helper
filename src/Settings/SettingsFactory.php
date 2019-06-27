@@ -17,13 +17,10 @@ use Algolia\AlgoliaSearch\Helper\Settings\SettingsAttribute\DisableTypoTolerance
 use Algolia\AlgoliaSearch\Helper\Settings\SettingsAttribute\SearchableAttribute;
 use Algolia\AlgoliaSearch\Helper\Settings\SettingsAttribute\UnretrievableAttribute;
 
-/**
- * @internal
- */
 final class SettingsFactory
 {
     /**
-     * @var string[]
+     * @var array<string, string>
      */
     private static $settings = [
         'searchableAttributes' => SearchableAttribute::class,
@@ -38,7 +35,7 @@ final class SettingsFactory
      *
      * @param array $model
      *
-     * @return array
+     * @return array<string, array<int, string>>
      */
     public static function create($model)
     {
@@ -46,7 +43,13 @@ final class SettingsFactory
         foreach ($model as $key => $value) {
             $key = (string) $key;
             foreach (self::$settings as $setting => $settingClass) {
-                $detectedSettings[$setting] = (new $settingClass())->getValue($key, $value, $detectedSettings[$setting]);
+                $detectedSettings[$setting] = (new $settingClass())->getDetectedSettings($key, $value, $detectedSettings[$setting]);
+            }
+        }
+
+        foreach ($detectedSettings as $key => $value) {
+            if (0 === count($value)) {
+                $detectedSettings[$key] = null;
             }
         }
 

@@ -8,6 +8,8 @@ final class Factory
 {
     private static $instance;
 
+    private static $lang = 'php-helper';
+
     private $client;
 
     /**
@@ -21,13 +23,17 @@ final class Factory
     {
         if (!self::$instance) {
             self::$instance = getenv('TRAVIS') ? getenv('TRAVIS_JOB_NUMBER') : get_current_user();
+            self::$lang = getenv('TRAVIS') ? 'TRAVIS_'.self::$lang : self::$lang;
+            if (getenv('COMPOSER_FLAGS') === '--prefer-lowest') {
+                self::$lang .= '_lowest';
+            }
         }
 
-        return sprintf('TRAVIS_php-helper_%s_%s_%s', date('Y-M-d_H:i:s'), self::$instance, $name);
+        return sprintf('%s_%s_%s_%s', self::$lang, date('Y-M-d_H:i:s'), self::$instance, $name);
     }
 
     /**
-     * Returns a new client.
+     * Instantiate new Client.
      *
      * @param void
      *
@@ -41,14 +47,14 @@ final class Factory
     /**
      * Create an object.
      *
-     * @return array<string, string|int>
+     * @return array<string, int|string>
      */
     public static function makeObject()
     {
         $faker = \Faker\Factory::create();
 
         return [
-            'objectID' => uniqid('php_client_', true),
+            'objectID' => uniqid('php_helper_client_', true),
             ['name' => $faker->name],
             ['age' => $faker->randomDigitNotNull],
         ];

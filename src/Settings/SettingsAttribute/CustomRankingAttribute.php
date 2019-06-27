@@ -14,13 +14,13 @@ namespace Algolia\AlgoliaSearch\Helper\Settings\SettingsAttribute;
 use Algolia\AlgoliaSearch\Helper\Contracts\SettingContract;
 use Algolia\AlgoliaSearch\Helper\Helpers\Str;
 
-/*
+/**
  * @internal
  */
 final class CustomRankingAttribute implements SettingContract
 {
     /**
-     * @var string[]
+     * @var array<int, string>
      */
     private static $customRankingKeys = [
         '*ed_at',
@@ -31,20 +31,14 @@ final class CustomRankingAttribute implements SettingContract
     ];
 
     /**
-     * Checks if the given key/value is a 'CustomRanking'.
-     *
-     * @param string            $key
-     * @param array|string|null $value
-     * @param array             $customRanking
-     *
-     * @return array
+     * {@inheritdoc}
      */
-    public function getValue($key, $value, $customRanking)
+    public function getDetectedSettings($key, $value, $detectedSettings)
     {
         if (Str::is(self::$customRankingKeys, $key)) {
-            $customRanking[] = "desc({$key})";
+            $detectedSettings[] = "desc({$key})";
         }
 
-        return $customRanking;
+        return $detectedSettings;
     }
 }

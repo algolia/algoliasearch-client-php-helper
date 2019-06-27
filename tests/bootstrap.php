@@ -9,7 +9,7 @@ $envs = [
 
 foreach ($envs as $env) {
     if (!is_string(getenv($env))) {
-        echo "Environment variable $env is undefined, please set one.";
+        echo "Environment variable {$env} is undefined, please set one.";
         exit(255);
     }
 }

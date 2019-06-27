@@ -12,18 +12,18 @@
 namespace Algolia\AlgoliaSearch\Helper\Contracts;
 
 /**
- * @internal the interface uses the public methods {@getValue}
+ * @internal
  */
 interface SettingContract
 {
     /**
      * Checks if the given key/value is a setting.
      *
-     * @param string            $key
-     * @param array|string|null $value
-     * @param array             $setting
+     * @param int|string                            $key
+     * @param null|array<int, string>|object|string $value
+     * @param array<int, string>                    $detectedSettings
      *
-     * @return array
+     * @return array<int, int|string>
      */
-    public function getValue($key, $value, $setting);
+    public function getDetectedSettings($key, $value, $detectedSettings);
 }

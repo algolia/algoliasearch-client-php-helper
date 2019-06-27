@@ -4,6 +4,7 @@
         "localheinz/phpstan-rules": "^0.6.0",
         "phpstan/phpstan-strict-rules": "^0.11",
         "roave/no-floaters": "^1.1",
-        "thecodingmachine/phpstan-strict-rules": "^0.11.0"
+        "thecodingmachine/phpstan-strict-rules": "^0.11.0",
+        "nunomaduro/phpinsights": "^1.7"
     }
 }

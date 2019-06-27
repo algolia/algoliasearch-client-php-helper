@@ -4,5 +4,5 @@
 /tests/cache/
 /vendor/
 composer.lock
-/tests/PhpStan/vendor
-/tests/PhpStan/composer.lock
+tests/QualityTools/vendor
+tests/QualityTools/composer.lock

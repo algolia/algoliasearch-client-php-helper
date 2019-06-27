@@ -1,8 +1,8 @@
 includes:
-    - tests/PhpStan/vendor/phpstan/phpstan-strict-rules/rules.neon
-    - tests/PhpStan/vendor/localheinz/phpstan-rules/rules.neon
-    - tests/PhpStan/vendor/thecodingmachine/phpstan-strict-rules/phpstan-strict-rules.neon
-    - tests/PhpStan/vendor/roave/no-floaters/rules.neon
+    - tests/QualityTools/vendor/phpstan/phpstan-strict-rules/rules.neon
+    - tests/QualityTools/vendor/localheinz/phpstan-rules/rules.neon
+    - tests/QualityTools/vendor/thecodingmachine/phpstan-strict-rules/phpstan-strict-rules.neon
+    - tests/QualityTools/vendor/roave/no-floaters/rules.neon
 
 parameters:
     level: max

@@ -5,6 +5,9 @@ namespace Algolia\AlgoliaSearch\Helper\Tests\Integration;
 use Algolia\AlgoliaSearch\Helper\Tests\Helpers\Factory;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * @internal
+ */
 final class SearchIndexTest extends TestCase
 {
     /**
@@ -18,7 +21,6 @@ final class SearchIndexTest extends TestCase
     public function setUp()
     {
         $client = Factory::getClient();
-
         $this->index = $client->initIndex(Factory::getIndexName($this->getName()));
     }
 
@@ -33,33 +35,16 @@ final class SearchIndexTest extends TestCase
     /**
      * @return void
      */
-    public function testIndexExists()
-    {
-        self::assertFalse($this->index->exists());
-
-        $obj = ['foo' => 'bar'];
-
-        $this->index
-            ->saveObject($obj, ['autoGenerateObjectIDIfNotExist' => true])
-            ->wait();
-
-        self::assertTrue($this->index->exists());
-    }
-
-    /**
-     * @return void
-     */
     public function testCount()
     {
         $objects = [];
-        for ($i = 1; $i <= 1000; $i++) {
+        for ($i = 1; $i <= 1001; $i++) {
             $objects[] = Factory::makeObject();
         }
-
         $this->index
             ->saveObjects($objects)
             ->wait();
 
-        self::assertEquals($this->index->count(), 1000);
+        self::assertEquals($this->index->count(), 1001);
     }
 }

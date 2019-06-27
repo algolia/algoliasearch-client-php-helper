@@ -16,17 +16,27 @@ namespace Algolia\AlgoliaSearch\Helper\Splitters\HtmlSplitter;
 final class NodesCollection
 {
     /**
+     * Holds the importance keyword.
+     */
+    const IMPORTANCE = 'importance';
+
+    /**
      * An array of \Algolia\AlgoliaSearch\Helper\Splitters\HtmlSplitter\NodeCollection
      * and int as importance after each \Algolia\AlgoliaSearch\Helper\Splitters\HtmlSplitter\NodeCollection.
      *
-     * @var array<int, array<string, \Algolia\AlgoliaSearch\Helper\Splitters\HtmlSplitter\Node|int>>
+     * @var array<int, array<int, \Algolia\AlgoliaSearch\Helper\Splitters\HtmlSplitter\Node> | array<string, int>>>
      */
     private $nodesImportance = [];
 
     /**
-     * Holds the importance keyword.
+     * @var array<int, array<string, int|string>>
      */
-    const IMPORTANCE = 'importance';
+    private $array = [];
+
+    /**
+     * @var array<string, int|string>
+     */
+    private $object = [];
 
     /**
      * Importance need to be add after to avoid polluted queue.
@@ -45,24 +55,34 @@ final class NodesCollection
     /**
      * Convert to array.
      *
-     * @return array<int, array>
+     * @return array<int, array<string, int|string>>
      */
     public function toArray()
     {
-        $array = [];
-        $object = [];
         foreach ($this->nodesImportance as $nodes) {
-            foreach ($nodes as $node) {
-                if ($node instanceof Node) {
-                    $object[$node->getTag()] = $node->getContent();
-                } else {
-                    $object[self::IMPORTANCE] = $node;
-                    $array[] = $object;
-                    $object = [];
-                }
-            }
+            $this->sanitize($nodes);
         }
 
-        return $array;
+        return $this->array;
+    }
+
+    /**
+     * Check the data before adding to the array and sanitize it.
+     *
+     * @param array<int, \Algolia\AlgoliaSearch\Helper\Splitters\HtmlSplitter\Node>| array<string, int> $nodes
+     *
+     * @return void
+     */
+    private function sanitize($nodes)
+    {
+        foreach ($nodes as $node) {
+            if ($node instanceof Node) {
+                $this->object[$node->getTag()] = $node->getContent();
+            } else {
+                $this->object[self::IMPORTANCE] = $node;
+                $this->array[] = $this->object;
+                $this->object = [];
+            }
+        }
     }
 }

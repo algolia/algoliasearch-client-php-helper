@@ -4,7 +4,6 @@
     <testsuite>
         <testsuite name="Integration">
             <directory suffix="Test.php">tests/Integration/</directory>
-            <exclude>./tests/Integration/KeysTest.php</exclude>
         </testsuite>
     </testsuite>
 </phpunit>
