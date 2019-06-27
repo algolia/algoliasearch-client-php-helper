@@ -38,13 +38,13 @@ final class GenerateSettingsTest extends TestCase
     {
         $array = [];
         $settings = SettingsFactory::create($array);
+
         $this->index->setSettings($settings)
             ->wait();
         $settings = $this->index->getSettings();
-
         self::assertEmpty($settings['attributesForFaceting']);
         self::assertEmpty($settings['customRanking']);
-        self::assertEmpty($settings['disableTypoToleranceOnAttributes']);
+        self::assertArrayNotHasKey('disableTypoToleranceOnAttributes', $settings);
         self::assertArrayNotHasKey('searchableAttributes', $settings);
         self::assertEmpty($settings['unretrievableAttributes']);
     }
@@ -61,8 +61,8 @@ final class GenerateSettingsTest extends TestCase
             'city_name' => 'Bam',
             'type_name' => 'Bat',
         ];
-
         $settings = SettingsFactory::create($array);
+
         $this->index->setSettings($settings)
             ->wait();
         $settings = $this->index->getSettings();
@@ -104,11 +104,11 @@ final class GenerateSettingsTest extends TestCase
     {
         $array = [
             'slug' => 'Foo',
-            '*_slug' => 'Bar',
-            'slug_*' => 'Baz',
-            '*code*' => 'Bam',
-            '*sku*' => 'Bat',
-            '*reference*' => 'Bap',
+            'name_slug' => 'Bar',
+            'slug_name' => 'Baz',
+            'code_name' => 'Bam',
+            'sku' => 'Bat',
+            'reference_name' => 'Bap',
         ];
 
         $settings = SettingsFactory::create($array);
@@ -126,21 +126,21 @@ final class GenerateSettingsTest extends TestCase
         $array = [
             'Foo' => 'Foo',
             'id' => 'id',
-            '*_id' => '*_id',
-            'id_*' => 'id_*',
-            '*ed_at' => '*ed_at',
-            '*_count' => '*_count',
-            'count_*' => 'count_*',
-            'number_*' => 'number_*',
-            '*_number' => '*_number',
-            '*image*' => '*image*',
-            '*url*' => '*url*',
-            '*link*' => '*link*',
-            '*password*' => '*password*',
-            '*token*' => '*token*',
-            '*hash*' => '*hash*',
-            'Bar' => 'http://*',
-            'Baz' => 'https://*',
+            'name_id' => 'name_id',
+            'id_name' => 'id_name',
+            'created_at' => 'created_at',
+            'name_count' => 'name_count',
+            'count_name_' => 'count_name_',
+            'number_name_' => 'number_name_',
+            'name__number' => 'name__number',
+            'name_image_' => 'name_image',
+            'name_url_' => 'name_url',
+            'name_link_' => 'name_link',
+            'name_password' => 'name_password',
+            'name_token' => 'name_token',
+            'name_hash' => 'name_hash',
+            'Bar' => 'http://baz',
+            'Baz' => 'https://baz',
         ];
         $settings = SettingsFactory::create($array);
         $this->index->setSettings($settings)
@@ -156,10 +156,10 @@ final class GenerateSettingsTest extends TestCase
     public function testUnretrievableAttribute()
     {
         $array = [
-            '*password*' => 'Foo',
-            '*token*' => 'Bar',
-            '*secret*' => 'Baz',
-            '*hash*' => 'Bam',
+            'name_password' => 'Foo',
+            'name_token' => 'Bar',
+            'name_secret' => 'Baz',
+            'name_hash' => 'Bam',
         ];
 
         $settings = SettingsFactory::create($array);

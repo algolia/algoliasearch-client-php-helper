@@ -3,7 +3,7 @@
 /**
  * This file is part of Laravel.
  *
- * https://github.com/laravel/framework/blob/5.5/src/Illuminate/Support/Str.php
+ * https://github.com/laravel/framework/blob/master/src/Illuminate/Support/Str.php
  *
  * It was modified by Algolia Team <contact@algolia.com>
  *

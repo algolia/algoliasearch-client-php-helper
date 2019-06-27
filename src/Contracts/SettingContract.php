@@ -12,7 +12,7 @@
 namespace Algolia\AlgoliaSearch\Helper\Contracts;
 
 /**
- * @internal the interface uses the public methods {@getValue}
+ * @internal
  */
 interface SettingContract
 {

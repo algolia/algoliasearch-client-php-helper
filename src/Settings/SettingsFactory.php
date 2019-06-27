@@ -17,9 +17,6 @@ use Algolia\AlgoliaSearch\Helper\Settings\SettingsAttribute\DisableTypoTolerance
 use Algolia\AlgoliaSearch\Helper\Settings\SettingsAttribute\SearchableAttribute;
 use Algolia\AlgoliaSearch\Helper\Settings\SettingsAttribute\UnretrievableAttribute;
 
-/**
- * @internal
- */
 final class SettingsFactory
 {
     /**
@@ -47,6 +44,13 @@ final class SettingsFactory
             $key = (string) $key;
             foreach (self::$settings as $setting => $settingClass) {
                 $detectedSettings[$setting] = (new $settingClass())->getValue($key, $value, $detectedSettings[$setting]);
+            }
+        }
+
+        foreach ($detectedSettings as $key => $value) {
+            if (0 === count($value)) {
+                $value = null;
+                $detectedSettings[$key] = $value;
             }
         }
 
