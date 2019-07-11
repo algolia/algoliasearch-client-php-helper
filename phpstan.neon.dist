@@ -1,0 +1,18 @@
+includes:
+    - tests/QualityTools/vendor/phpstan/phpstan-strict-rules/rules.neon
+    - tests/QualityTools/vendor/localheinz/phpstan-rules/rules.neon
+    - tests/QualityTools/vendor/thecodingmachine/phpstan-strict-rules/phpstan-strict-rules.neon
+    - tests/QualityTools/vendor/roave/no-floaters/rules.neon
+
+parameters:
+    level: max
+    paths:
+        - src
+        - tests/Integration
+    ignoreErrors:
+        - '#return type can be added. More info#'
+        - '#Parameter \#1 \$indexName \(string\) of method Algolia\\AlgoliaSearch\\Helper\\SearchClient::initIndex\(\) should be contravariant with parameter \$indexName \(mixed\) of method Algolia\\AlgoliaSearch\\SearchClient::initIndex\(\)#'
+        - '#In method.*type-hinted.*More info#'
+        - '#In method \"Algolia\\AlgoliaSearch\\Helper\\Splitters\\HtmlSplitter::split\", caught \"Exception\" must be rethrown. Either catch a more specific exception or add a \"throw\" clause in the \"catch\" block to propagate the exception.#'
+        - '#Method.*has parameter \$tags with null as default value.#'
+        - '#Constructor.*has parameter \$tags with default value.#'

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit colors="true" bootstrap="tests/bootstrap.php">
+    <ini name="date.timezone" value="UTC"/>
+    <testsuite>
+        <testsuite name="Integration">
+            <directory suffix="Test.php">tests/Integration/</directory>
+        </testsuite>
+    </testsuite>
+</phpunit>

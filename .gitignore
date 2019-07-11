@@ -1,0 +1,8 @@
+*.cache
+.idea/
+.php_cs.cache
+/tests/cache/
+/vendor/
+composer.lock
+tests/QualityTools/vendor
+tests/QualityTools/composer.lock
